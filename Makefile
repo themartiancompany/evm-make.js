@@ -58,11 +58,11 @@ NPM_FILES=\
   "AUTHORS.rst" \
   "dist" \
   "lib" \
-  "evm-deployer" \
+  "$(_PROJECT)" \
   "eslint.config.mjs" \
   "fs-worker.webpack.config.cjs" \
-  "libevm-deployer" \
-  "libevm-deployer.webpack.config.cjs" \
+  "lib$(_PROJECT)" \
+  "lib$(_PROJECT).webpack.config.cjs" \
   "package.json" \
   "webpack.config.cjs"
 
@@ -173,12 +173,12 @@ build-npm:
 	  "."; \
 	chmod \
 	  +x \
-	  "evm-deployer"; \
+	  "$(_PROJECT)"; \
 	npm \
 	  pack; \
 	chmod \
 	  +x \
-	  "evm-deployer"; \
+	  "$(_PROJECT)"; \
 	mv \
 	  "$(_PROJECT_NPM)-$${_version}.tgz" \
 	  ".."
