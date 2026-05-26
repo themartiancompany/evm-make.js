@@ -1,0 +1,134 @@
+{ "name": "solidity-compiler.js",
+  "version":
+    "0.0.1",
+  "description":
+    "Solidity smart contracts deployer for Ethereum Virtual Machine (EVM) compatible blockchain networks.",
+  "funding": {
+    "type":
+      "patreon",
+    "url":
+      "https://patreon.com/tallero"
+  },
+  "man": [
+    "./man/evm-deployer.1"
+  ],
+  "files": [
+    "AUTHORS.rst",
+    "COPYING",
+    "README.md",
+    "dist",
+    "lib",
+    "libevm-deployer",
+    "libevm-deployer.webpack.config.js",
+    "evm-deployer",
+    "fs-worker.webpack.config.js",
+    "package.json",
+    "serve.json",
+    "webpack.config.js"
+  ],
+  "keywords": [
+    "ur",
+    "themartiancompany",
+    "dogeos",
+    "ethereum"
+  ],
+  "homepage":
+    "https://github.com/themartiancompany/evm-deployer",
+  "bugs": {
+    "url":
+      "https://github.com/themartiancompany/evm-deployer.js/issues"
+  },
+  "repository": {
+    "type":
+      "git",
+    "url":
+      "git+https://github.com/themartiancompany/evm-deployer.js.git"
+  },
+  "license":
+    "AGPL-3.0-or-later",
+  "author": {
+    "name":
+      "Pellegrino Prevete",
+    "email":
+      "pellegrinoprevete@gmail.com",
+    "url":
+      "https://github.com/tallero"
+  },
+  "devDependencies": {
+    "crash-js-webpack":
+      "^0.0.10",
+    "flatted":
+      "^3.2.9",
+    "eslint":
+      "^10.0.3",
+    "globals":
+      "^17.3.0",
+    "@eslint/js":
+      "^10.0.1",
+    "safely-serve":
+      "^0.0.9",
+    "webpack":
+      "^5.102.1",
+    "webpack-cli":
+      "^6.0.1"
+  },
+  "dependencies": {
+    "crash-js":
+      "^0.1.111",
+    "hardhat":
+      "^3.5.1",
+    "evm-wallet.js":
+      "^0.0.45",
+    "libevm":
+      "^0.0.26",
+    "evm-deployer":
+      "^0.0.1",
+    "yargs":
+      "18.0.0"
+  },
+  "optionalDependencies": {
+  },
+  "overrides": {
+    "evm-deployer":
+      "^0.0.1",
+    "evm-wallet.js":
+      "^0.0.45",
+    "evm-chains-info":
+      "^0.0.22",
+    "libevm":
+      "^0.0.26"
+  },
+  "type":
+    "commonjs",
+  "main":
+    "libevm-deployer",
+  "bin":
+    { 
+      "evm-deployer":
+        "evm-deployer"
+    },
+  "yargs": {
+    "parse-numbers":
+      false,
+    "parse-positional-numbers":
+      false
+  },
+  "scripts": {
+    "build-bin":
+      "npx webpack --mode 'production' --config 'webpack.config.cjs' --stats-error-details && mv 'solidity-compiler.js' 'dist/solidity-compiler'",
+    "build-fs-worker":
+      "npx webpack --mode 'production' --config 'fs-worker.webpack.config.cjs' --stats-error-details && cp 'fs-worker.js' 'dist/solidity-compiler' && cp 'fs-worker.js' 'dist/libsolidity-compiler'",
+    "build-lib":
+      "npx webpack --mode 'production' --config 'libsolidity-compiler.webpack.config.cjs' --stats-error-details && mv 'libsolidity-compiler.js' 'dist/libsolidity-compiler'",
+    "build":
+      "npm run lint && npm run build-fs-worker && npm run build-lib && npm run build-bin",
+    "lint":
+      "npx eslint .",
+    "publish-npm":
+      "npm run build && npm publish --access public",
+    "start":
+      "npx safely-serve 'dist/solidity-compiler' --port 3000 --https --no-cache",
+    "test":
+      "echo \"Error: no test specified\" && exit 1"
+  }
+}
