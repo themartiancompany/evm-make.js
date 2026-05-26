@@ -27,7 +27,7 @@
 SHELL=bash
 PREFIX ?= /usr/local
 _PROJECT_NPM=solidity-compiler
-_PROJECT=$(_PROJECT_NPM)
+_PROJECT=$(_PROJECT_NPM).js
 _NAMESPACE=themartiancompany
 DOC_DIR=$(DESTDIR)$(PREFIX)/share/doc/$(_PROJECT)
 USR_DIR=$(DESTDIR)$(PREFIX)
