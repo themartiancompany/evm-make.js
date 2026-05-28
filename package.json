@@ -1,8 +1,8 @@
-{ "name": "solidity-compiler.js",
+{ "name": "ss.js",
   "version":
     "0.0.1",
   "description":
-    "Solidity smart contracts deployer for Ethereum Virtual Machine (EVM) compatible blockchain networks.",
+    "Git On Ethereum.",
   "funding": {
     "type":
       "patreon",
@@ -10,7 +10,7 @@
       "https://patreon.com/tallero"
   },
   "man": [
-    "./man/evm-deployer.1"
+    "./man/evm-git.1"
   ],
   "files": [
     "AUTHORS.rst",
@@ -18,9 +18,9 @@
     "README.md",
     "dist",
     "lib",
-    "libevm-deployer",
-    "libevm-deployer.webpack.config.js",
-    "evm-deployer",
+    "libevm-git",
+    "libevm-git.webpack.config.js",
+    "evm-git",
     "fs-worker.webpack.config.js",
     "package.json",
     "serve.json",
@@ -33,16 +33,16 @@
     "ethereum"
   ],
   "homepage":
-    "https://github.com/themartiancompany/evm-deployer",
+    "https://github.com/themartiancompany/evm-git",
   "bugs": {
     "url":
-      "https://github.com/themartiancompany/evm-deployer.js/issues"
+      "https://github.com/themartiancompany/evm-git.js/issues"
   },
   "repository": {
     "type":
       "git",
     "url":
-      "git+https://github.com/themartiancompany/evm-deployer.js.git"
+      "git+https://github.com/themartiancompany/evm-git.js.git"
   },
   "license":
     "AGPL-3.0-or-later",
@@ -75,37 +75,21 @@
   "dependencies": {
     "crash-js":
       "^0.1.111",
-    "hardhat":
-      "^3.5.1",
-    "evm-wallet.js":
-      "^0.0.45",
-    "libevm":
-      "^0.0.26",
-    "evm-deployer":
-      "^0.0.1",
     "yargs":
       "18.0.0"
   },
   "optionalDependencies": {
   },
-  "overrides": {
-    "evm-deployer":
-      "^0.0.1",
-    "evm-wallet.js":
-      "^0.0.45",
-    "evm-chains-info":
-      "^0.0.22",
-    "libevm":
-      "^0.0.26"
-  },
   "type":
     "commonjs",
   "main":
-    "libevm-deployer",
+    "libevm-git",
   "bin":
     { 
-      "evm-deployer":
-        "evm-deployer"
+      "evm-git":
+        "evm-git",
+      "egit":
+        "egit"
     },
   "yargs": {
     "parse-numbers":

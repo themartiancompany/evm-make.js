@@ -26,8 +26,8 @@
 
 SHELL=bash
 PREFIX ?= /usr/local
-_PROJECT=solidity-compiler
-_PROJECT_NPM=$(_PROJECT).js
+_PROJECT=ss
+_PROJECT_NPM=$(_PROJECT)
 _NAMESPACE=themartiancompany
 DOC_DIR=$(DESTDIR)$(PREFIX)/share/doc/$(_PROJECT)
 USR_DIR=$(DESTDIR)$(PREFIX)
@@ -134,8 +134,8 @@ build-man:
 
 build-npm:
 
-	make \
-	  build-man
+	# make \
+	#   build-man
 	for _file in $(NPM_FILES); do \
 	  if [[ -d "$${_file}" ]]; then \
 	    mkdir \

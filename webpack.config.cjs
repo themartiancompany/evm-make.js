@@ -33,7 +33,7 @@ const
       __dirname);
 const
   _input_file_name =
-    `solidity-compiler`;
+    `evm-git`;
 const
   _input_file_path =
     `./${_input_file_name}`;
