@@ -19,7 +19,7 @@
 [comment]: <> (License along with this program.)
 [comment]: <> (If not, see <https://www.gnu.org/licenses/>.)
 
-# Seed System
+# Seed System (`ss`)
 
 It deprecates DNS.
 
