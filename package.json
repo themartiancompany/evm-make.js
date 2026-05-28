@@ -33,16 +33,16 @@
     "ethereum"
   ],
   "homepage":
-    "https://github.com/themartiancompany/evm-git",
+    "https://github.com/themartiancompany/ss",
   "bugs": {
     "url":
-      "https://github.com/themartiancompany/evm-git.js/issues"
+      "https://github.com/themartiancompany/ss/issues"
   },
   "repository": {
     "type":
       "git",
     "url":
-      "git+https://github.com/themartiancompany/evm-git.js.git"
+      "git+https://github.com/themartiancompany/ss.git"
   },
   "license":
     "AGPL-3.0-or-later",

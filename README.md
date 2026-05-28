@@ -74,14 +74,14 @@ To install it from there just type
 
 ```bash
 ur \
-  seed-system
+  ss
 ```
 
 A censorable HTTP Github mirror of the recipe published there,
 containing a full list of the software dependencies needed to run the
 tools is hosted on
 [seed-system-ur](
-  https://github.com/themartiancompany/seed-system-ur).
+  https://github.com/themartiancompany/ss-ur).
 
 Be aware the mirror could go offline any time as Github and more
 in general all HTTP resources are inherently unstable and censorable.
