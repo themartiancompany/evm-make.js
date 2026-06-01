@@ -1,8 +1,8 @@
-{ "name": "seed-system",
+{ "name": "user-repository",
   "version":
-    "0.0.4",
+    "0.0.1",
   "description":
-    "Reference Seed System client.",
+    "Decentralized, distributed, permissionless, uncensorable, undeletable, unstoppable, User Repository and Application Store.",
   "funding": {
     "type":
       "patreon",
@@ -10,7 +10,7 @@
       "https://patreon.com/tallero"
   },
   "man": [
-    "./man/evm-git.1"
+    "./man/ur.1"
   ],
   "files": [
     "AUTHORS.rst",
@@ -18,9 +18,9 @@
     "README.md",
     "dist",
     "lib",
-    "libssolve",
-    "libssolve.webpack.config.js",
-    "ssolve",
+    "libur",
+    "libur.webpack.config.js",
+    "ur",
     "fs-worker.webpack.config.js",
     "package.json",
     "serve.json",
@@ -30,19 +30,21 @@
     "ur",
     "themartiancompany",
     "dogeos",
-    "ethereum"
+    "ethereum",
+    "evmfs",
+    "openpgp-on-ethereum"
   ],
   "homepage":
-    "https://github.com/themartiancompany/ss",
+    "https://github.com/themartiancompany/ur",
   "bugs": {
     "url":
-      "https://github.com/themartiancompany/ss/issues"
+      "https://github.com/themartiancompany/ur.js/issues"
   },
   "repository": {
     "type":
       "git",
     "url":
-      "git+https://github.com/themartiancompany/ss.git"
+      "git+https://github.com/themartiancompany/ur.js.git"
   },
   "license":
     "AGPL-3.0-or-later",
@@ -83,11 +85,13 @@
   "type":
     "commonjs",
   "main":
-    "libevm-git",
+    "libur",
   "bin":
     { 
-      "ssolve":
-        "ssolve"
+      "ur":
+        "ur",
+      "ur.js":
+        "ur"
     },
   "yargs": {
     "parse-numbers":
@@ -97,11 +101,11 @@
   },
   "scripts": {
     "build-bin":
-      "npx webpack --mode 'production' --config 'webpack.config.cjs' --stats-error-details && mv 'solidity-compiler.js' 'dist/solidity-compiler'",
+      "npx webpack --mode 'production' --config 'webpack.config.cjs' --stats-error-details && mv 'ur.js' 'dist/ur'",
     "build-fs-worker":
-      "npx webpack --mode 'production' --config 'fs-worker.webpack.config.cjs' --stats-error-details && cp 'fs-worker.js' 'dist/solidity-compiler' && cp 'fs-worker.js' 'dist/libsolidity-compiler'",
+      "npx webpack --mode 'production' --config 'fs-worker.webpack.config.cjs' --stats-error-details && cp 'fs-worker.js' 'dist/ur' && cp 'fs-worker.js' 'dist/libur'",
     "build-lib":
-      "npx webpack --mode 'production' --config 'libsolidity-compiler.webpack.config.cjs' --stats-error-details && mv 'libsolidity-compiler.js' 'dist/libsolidity-compiler'",
+      "npx webpack --mode 'production' --config 'libur.webpack.config.cjs' --stats-error-details && mv 'libur.js' 'dist/libur'",
     "build":
       "npm run lint && npm run build-fs-worker && npm run build-lib && npm run build-bin",
     "lint":
@@ -109,7 +113,7 @@
     "publish-npm":
       "npm run build && npm publish --access public",
     "start":
-      "npx safely-serve 'dist/solidity-compiler' --port 3000 --https --no-cache",
+      "npx safely-serve 'dist/ur' --port 3000 --https --no-cache",
     "test":
       "echo \"Error: no test specified\" && exit 1"
   }

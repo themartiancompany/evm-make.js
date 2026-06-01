@@ -1,7 +1,9 @@
 # SPDX-License-Identifier: AGPL-3.0
 
 #    -----------------------------------------------------
-#    Copyright © 2024, 2025, 2026  Pellegrino Prevete
+#    Copyright © 2022, 2023, 2024,
+#                2025, 2026
+#                Pellegrino Prevete
 #
 #    All rights reserved
 #    -----------------------------------------------------
@@ -26,8 +28,8 @@
 
 SHELL=bash
 PREFIX ?= /usr/local
-_PROJECT=ss
-_PROJECT_NPM=$(_PROJECT)
+_PROJECT=ur
+_PROJECT_NPM=user-repository
 _NAMESPACE=themartiancompany
 DOC_DIR=$(DESTDIR)$(PREFIX)/share/doc/$(_PROJECT)
 USR_DIR=$(DESTDIR)$(PREFIX)
@@ -134,6 +136,9 @@ build-man:
 
 build-npm:
 
+	mkdir \
+	  -p \
+	  "build"
 	# make \
 	#   build-man
 	for _file in $(NPM_FILES); do \
