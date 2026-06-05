@@ -1,5 +1,5 @@
 /**    ----------------------------------------------------------------------
- *     libevm-git.webpack.config.cjs
+ *     libevm-make.webpack.config.cjs
  *     ----------------------------------------------------------------------
  *     Copyright ©
  *       Pellegrino Prevete
@@ -32,7 +32,7 @@ const
       __dirname);
 const
   _input_file_name =
-    `libur`;
+    `libevm-make`;
 const
   _input_file_path =
     `./${_input_file_name}`;

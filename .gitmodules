@@ -1,3 +1,0 @@
-[submodule "man"]
-	path = man
-	url = github:themartiancompany/solidity-compiler-man
