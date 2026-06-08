@@ -1,6 +1,6 @@
 { "name": "user-repository",
   "version":
-    "0.0.1",
+    "0.0.3",
   "description":
     "Decentralized, distributed, permissionless, uncensorable, undeletable, unstoppable, User Repository and Application Store.",
   "funding": {
@@ -79,6 +79,10 @@
       "^0.1.111",
     "evmfs":
       "^0.0.6",
+    "libevm":
+      "^0.0.27",
+    "ur-contracts":
+      "^0.0.2",
     "yargs":
       "18.0.0"
   },
