@@ -28,8 +28,8 @@
 
 SHELL=bash
 PREFIX ?= /usr/local
-_PROJECT=ur
-_PROJECT_NPM=user-repository
+_PROJECT=evm-make
+_PROJECT_NPM=$(_PROJECT)
 _NAMESPACE=themartiancompany
 DOC_DIR=$(DESTDIR)$(PREFIX)/share/doc/$(_PROJECT)
 USR_DIR=$(DESTDIR)$(PREFIX)
