@@ -77,6 +77,8 @@
   "dependencies": {
     "crash-js":
       "^0.1.111",
+    "solidity-compiler.js":
+      "^0.0.1",
     "yargs":
       "18.0.0"
   },
