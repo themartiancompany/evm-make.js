@@ -1,6 +1,6 @@
 { "name": "evm-make",
   "version":
-    "0.0.2",
+    "0.0.3",
   "description":
     "Make (build and install) tool for applications developed using LibEVM and the EVM toolchain.",
   "funding": {
@@ -58,27 +58,27 @@
   },
   "devDependencies": {
     "crash-js-webpack":
-      "^0.0.10",
+      "^0.0.78",
     "flatted":
       "^3.2.9",
     "eslint":
-      "^10.0.3",
+      "^10.9.0",
     "globals":
       "^17.3.0",
     "@eslint/js":
       "^10.0.1",
     "safely-serve":
-      "^0.0.9",
+      "^0.0.22",
     "webpack":
-      "^5.102.1",
+      "^5.109.2",
     "webpack-cli":
-      "^6.0.1"
+      "^7.2.2"
   },
   "dependencies": {
-    "crash-js":
-      "^0.1.111",
+    "libcrash-js":
+      "npm:crash-js@^1000000000000012.1000000000000001.1000000000000001",
     "solidity-compiler.js":
-      "^0.0.1",
+      "^0.0.2",
     "yargs":
       "18.0.0"
   },
