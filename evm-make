@@ -919,7 +919,7 @@ async function
     ];
   const
     _results =
-      await _evm_wallet.apply(
+      await _evm_make.apply(
         null,
         app_opts);
   const
