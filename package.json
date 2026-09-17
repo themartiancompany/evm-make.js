@@ -92,9 +92,9 @@
   "bin":
     { 
       "evm-make":
-        "evm-make",
+        "./bash/evm-make",
       "evm-make.js":
-        "evm-make"
+        "./evm-make"
     },
   "yargs": {
     "parse-numbers":
@@ -103,6 +103,8 @@
       false
   },
   "scripts": {
+    "build-bash":
+      "git submodule --init bash",
     "build-bin":
       "npx webpack --mode 'production' --config 'webpack.config.cjs' --stats-error-details && mv 'evm-make.js' 'dist/ur'",
     "build-fs-worker":
