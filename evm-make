@@ -172,10 +172,10 @@ function
     "dir",
     "");
   /* global
-       tasks_parallel:
+       contracts_dir:
          writable */
   _set(
-    "contract",
+    "contracts",
     "dir",
     "");
   /* global
@@ -285,43 +285,6 @@ function
 }
 
 function
-  _tasks_parallel_auto_detect() {
-  if ( networks_all == "y" ) {
-    tasks_parallel =
-      10;
-  }
-  else if ( networks_all == "n" ) {
-    tasks_parallel =
-      1;
-  }
-  else {
-    const
-      _msg =
-        `Invalid value '${tasks_parallel}' ` +
-        `for variable '${tasks_parallel}'`;
-    _msg_error(
-      _msg,
-      1);
-  }
-}
-
-function
-  _call_timeout_auto_detect() {
-  if ( typeof(
-         call_timeout) == "undefined" ||
-       call_timeout == "" ) {
-    if ( target_command == "get" ) {
-      call_timeout =
-        "30000";
-    }
-    else {
-      call_timeout =
-        "300000";
-    }
-  }
-}
-
-function
   _target_key_auto_detect() {
   if ( typeof(
          target_key) == "undefined" ||
@@ -395,18 +358,12 @@ async function
     networks_all =
       "n";
   }
-  _tasks_parallel_auto_detect();
-  _call_timeout_auto_detect();
   if ( config_dir == "" ) {
     const
       _home =
         _homedir_get();
     config_dir =
       `${_home}/.config/evm-wallet`;
-  }
-  if ( cache_dir == "" ) {
-    cache_dir =
-      `${_homedir_get()}/.cache/evm-wallet`;
   }
   _target_key_auto_detect();
   if ( balance_lifespan == "" ) {
@@ -496,12 +453,11 @@ function
       `          Network options:`,
       `            Maximum retries:   ${retries_max}`,
       `               Call timeout:   ${call_timeout}`,
-      `             Parallel tasks:   ${tasks_parallel}`,
       `           LibEVM options:`,
       `             Target network:   ${target_networks[0]}`,
       `      Application options:`,
       `    Configuration directory:   ${config_dir}`,
-      `            Cache directory:   ${cache_dir}`,
+      `             Work directory:   ${work_dir}`,
     ];
   for ( _line of _text ) {
     _msg_info(
@@ -766,26 +722,6 @@ async function
     networks_all =
       "y";
   }
-  if ( "P" in _argv ) {
-    tasks_parallel =
-      _argv[
-        "P"];
-  }
-  if ( "tasks-parallel" in _argv ) {
-    tasks_parallel =
-      _argv[
-        "tasks-parallel"];
-  }
-  if ( "Q" in _argv ) {
-    qr_support =
-      _argv[
-        "Q"];
-  }
-  if ( "qr-support" in _argv ) {
-    qr_support =
-      _argv[
-        "qr-support"];
-  }
   if ( "o" in _argv ) {
     output_type =
       _argv[
@@ -864,14 +800,6 @@ function
     _argv_url_get(
       "networks_all")[
         0];
-  tasks_parallel =
-    _argv_url_get(
-      "tasks_parallel")[
-        0];
-  qr_support =
-    _argv_url_get(
-      "qr_support")[
-        0];
   output_type =
     _argv_url_get(
       "output_type")[
@@ -888,9 +816,9 @@ function
     _argv_url_get(
       "config_dir")[
         0];
-  cache_dir =
+  work_dir =
     _argv_url_get(
-      "cache_dir")[
+      "work_dir")[
         0];
   quiet =
     _argv_url_get(
@@ -924,7 +852,6 @@ async function
       lib_dir,
       project_dir,
       retries_max,
-      tasks_parallel,
       call_timeout,
       measure_unit,
       balance_lifespan,
