@@ -134,23 +134,51 @@ function
        cache_clean:
          writable */
   _set(
-    "cache_clean",
-    "cache_clean",
+    "cache",
+    "clean",
     "");
   /* global
-       cache_dir:
+       project_dir:
          writable */
   _set(
-    "cache",
+    "project",
+    "dir",
+    "");
+  /* global
+       compiler_backend:
+         writable */
+  _set(
+    "compiler",
+    "backend",
+    "");
+  /* global
+       work_dir:
+         writable */
+  _set(
+    "work",
     "dir",
     "");
   /* global
        tasks_parallel:
          writable */
   _set(
-    "tasks",
-    "parallel",
+    "contract",
+    "dir",
     "");
+  /* global
+       lib_dir:
+         writable */
+  _set(
+    "lib",
+    "dir",
+    "");
+  /* global
+       target_languages:
+         writable */
+  _set(
+    "target",
+    "languages",
+    []);
   /* global
        target_networks:
          writable */
@@ -936,7 +964,6 @@ async function
 }
 
 _global_variables();
-_libevm_global_variables();
 if ( await _cmdline_check(
        "evm-make.js") ||
      await _cmdline_check(

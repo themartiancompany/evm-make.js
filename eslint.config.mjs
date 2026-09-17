@@ -33,6 +33,7 @@ const
 
 const
   _ignores = [
+    "bash/**",
     "build/**",
     "dist/**",
     "eslint.config.js",
