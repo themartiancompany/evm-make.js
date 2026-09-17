@@ -29,16 +29,17 @@ import { defineConfig } from "eslint/config";
 
 const
   _project =
-    "evm-deployer";
+    "evm-make";
 
 const
   _ignores = [
     "build/**",
     "dist/**",
     "eslint.config.js",
-    "evm-wallet.js",
+    "evm-make.js",
     "fs-worker.js",
-    "libevm-wallet.js",
+    "**/*.fs-worker.js",
+    "libevm-make.js",
     "man/**",
     "node_modules/**"
   ];
@@ -73,11 +74,9 @@ export default defineConfig([
          "error",
        "prefer-const":
          "error" },
-   files:
-     [ "**/*.js",
-       `**/${_project}*`,
-       `**/lib${_project}*`
-     ],
+   files: [
+     "**/*.{cjs,js}",
+   ],
    languageOptions:
      { sourceType:
          "commonjs" } },
