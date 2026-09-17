@@ -37,7 +37,7 @@
 
 const
   _crash_js_module =
-    require(
+    await import(
       "libcrash-js");
 /* global
      _cat */
