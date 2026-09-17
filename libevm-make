@@ -74,93 +74,11 @@ const
 const
   _stat =
     _crash_js_module._stat;
-const
-  _evm_chains_info_module =
-    await import(
-      "evm-chains-info");
-/* global
-     _evm_chains_info */
-const
-  _evm_chains_info =
-    _evm_chains_info_module._evm_chains_info;
-const
-  _evm_wallet_module =
-    await import(
-      "evm-wallet.js");
-/* global
-     _address_get */
-const
-  _address_get =
-    _evm_wallet_module._address_get;
-/* global
-     _balance_check */
-const
-  _balance_check =
-    _evm_wallet_module._balance_check;
-/* global
-     _msg_error_balance_insufficient */
-const
-  _msg_error_balance_insufficient =
-    _evm_wallet_module._msg_error_balance_insufficient;
-/* global
-     _balance_get */
-const
-  _balance_get =
-    _evm_wallet_module._balance_get;
-/* global
-     _balance_send */
-const
-  _balance_send =
-    _evm_wallet_module._balance_send;
-/* global
-     _block_number_get_get */
-const
-  _block_number_get =
-    _evm_wallet_module._block_number_get;
-/* global
-     _ethers_to_wei */
-const
-  _ethers_to_wei =
-    _evm_wallet_module._ethers_to_wei;
-/* global
-     _provider_get */
-const
-  _provider_get =
-    _evm_wallet_module._provider_get;
-/* global
-     _msg_info_provider_generated */
-const
-  _msg_info_provider_generated =
-    _evm_wallet_module._msg_info_provider_generated;
-/* global
-     _price_gas_get */
-const
-  _price_gas_get =
-    _evm_wallet_module._price_gas_get;
-/* global
-     _price_gas_transaction_get */
-const
-  _price_gas_transaction_get =
-    _evm_wallet_module._price_gas_transaction_get;
-/* global
-     _seed_new */
-const
-  _seed_new =
-    _evm_wallet_module._seed_new;
-/* global
-     _wallet_get */
-const
-  _wallet_get =
-    _evm_wallet_module._wallet_get;
-/* global
-     _wallet_new */
-const
-  _wallet_new =
-    _evm_wallet_module._wallet_new;
 
 function
   _evm_make(
     _install_backend) {
+  true;
 }
 
 export {
