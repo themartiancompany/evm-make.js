@@ -38,7 +38,7 @@
 const
   _crash_js_module =
     require(
-      "crash-js");
+      "libcrash-js");
 /* global
      _cat */
 const
@@ -76,7 +76,7 @@ const
     _crash_js_module._stat;
 const
   _evm_chains_info_module =
-    require(
+    await import(
       "evm-chains-info");
 /* global
      _evm_chains_info */
@@ -85,7 +85,7 @@ const
     _evm_chains_info_module._evm_chains_info;
 const
   _evm_wallet_module =
-    require(
+    await import(
       "evm-wallet.js");
 /* global
      _address_get */
@@ -158,17 +158,16 @@ const
   _wallet_new =
     _evm_wallet_module._wallet_new;
 
-const
-  _solidity_compiler_module =
-    require(
-      "./lib/compiler");
-/* global
-     _solidity_compiler */
-const
-  _solidity_compiler =
-    _solidity_compiler_module._solidity_compiler;
+function
+  _evm_make(
+    _install_backend) {
+}
 
-module.exports = {
-  _solidity_compiler:
-    _solidity_compiler
+export {
+  _evm_make
 };
+
+// module.exports = {
+//   _evm_make:
+//     _evm_make
+// };

@@ -18,6 +18,7 @@
     "README.md",
     "dist",
     "evm-make",
+    "lib",
     "libevm-make",
     "libevm-make.webpack.config.js",
     "fs-worker.webpack.config.js",

@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 /**    ----------------------------------------------------------------
- *     solidity-compiler.js
+ *     evm-make.js
  *     ----------------------------------------------------------------
  *     Copyright ©
  *       Pellegrino Prevete
@@ -57,6 +57,17 @@ const
   _cmdline_check =
     _libcrash._cmdline_check;
 /* global
+     _echo */
+const
+_echo =
+  _libcrash._echo;
+/* global
+     _exit */
+const
+_exit =
+  _libcrash._exit;
+
+/* global
      _homedir_get */
 const
   _homedir_get =
@@ -76,11 +87,6 @@ const
 const
   _msg_error =
     _libcrash._msg_error;
-/* global
-     _process_exit */
-const
-_process_exit =
-  _libcrash._process_exit;
 const
   _evm_wallet_module =
     require(
@@ -498,125 +504,63 @@ function
     _line;
   const
     _text = [
-      "EVM networks wallet",
+      "",
+      "EVM toolchain build and install tool.",
       "",
       "Usage:",
       "",
-      "  evm-wallet.js",
+      "  evm-make.js",
       "    [options]",
       "    <command>",
-      "      <command-args>",
       "",
       "  commands:",
-      "    get",
-      "      <wallet-name>",
-      "      <key>",
-      "    list",
-      "    <filter>",
-      "    set",
-      "      <wallet-name>",
-      "      <key>",
-      "      <value>",
-      "    send",
-      "      <address>",
-      "      <amount>",
       "",
-      "  keys:",
-      "    address",
-      "    balance",
-      "    name",
-      "    seed",
-      "",
-      "  networks:",
-      "    all those supported by",
-      "    'evm-chains-info' as",
-      "    well as direct RPC addresses",
+      "    build",
+      "    install",
+      "    install_sources",
+      "    install_deployments_config",
+      "    install_deployments",
+      `    Default: ${target_command}`,
       "",
       "  options:",
       "",
-      "     -R --rpc-selection              RPC selection method.",
-      `       <rpc-selection>               Default: '${rpc_selection}`,
+      "     -C <project-dir>       Project directory.",
+      `                            Default: ${project_dir}`,
       "",
-      "     -S --explorer-selection         Network explorer selection method.",
-      `       <explorer-selection-method>   Default: '${explorer_selection}'`,
+      "     -p <contracts-dir>     Contracts directory inside",
+      "                            the project.",
+      `                            Default: ${contracts_dir}`,
       "",
-      "     -r --retries-max                Maximum number of retries before",
-      "       <retries-max>                 failure.",
-      `                                     Default: '${retries_max}'`,
+      "     -b <compiler-backend>  Backend for solidity-compiler;",
+      "                            can be 'solc' or 'hardhat'.",
+      `                            Default: ${compiler_backend}`,
       "",
-      "     -u --measure-unit               Measure unit. It can be",
-      "       <measure-unit>                'ether' or 'wei'.",
-      `                                     Default: '${measure_unit}'`,
+      "     -w <work-dir>          Work directory.",
+      `                            Default: ${work_dir}`,
       "",
-      "     -l --balance-lifespan           Maximum threshold in seconds",
-      "       <balance-lifespan>            from now after which to consider",
-      "                                     the balance outdated.",
-      `                                     Default: '${balance_lifespan}'`,
+      "     -o <lib-dir>           Install directory.",
+      `                            Default: ${lib_dir}`,
       "",
-      "     -a --networks-all               Operation valid for all available",
-      "                                     networks.",
-      `                                     Default: '${networks_all}'`,
+      "     -l <y/n>               Whether to pass the clean cache",
+      "                            option to solidity-compiler.",
+      "                            When the backend is 'hardhat'",
+      "                            defaults to 'y', while for 'solc' is 'n'.",
+      `                            Default: ${cache_clean}`,
       "",
-      "     -P --tasks-parallel             Tasks to perform in",
-      "       <tasks-parallel>              parallel/concurrently.",
-      `                                     Default: '${tasks_parallel}'`,
+      "     -L <language>          Target languages for the configuration file.",
+      "                            It can be 'bash' or 'javascript'.",
+      `                            Default: ${target_languages}`,
       "",
-      "     -Q --qr-support                 Quantum resistance support.",
-      `       <y/n>                         Default: '${qr_support}'`,
-      "",
-      "  list options:",
-      "",
-      "     -o --output-type                It can be 'name', 'address',",
-      "       <output-type>                 'name', 'fingerprint'.",
-      `                                     Default: '${output_type}'`,
-      "",
-      "  send options:",
-      "",
-      "     -t --currency-type              Currency type.",
-      "       <currency-type>               It can be 'gas or 'erc20'.",
-      `                                     Default: '${currency_type}'`,
-      "",
-      "     -C --currency                   Address of the ERC20 token",
-      "       <address>                     on the network, if type is 'erc20'.",
-      `                                     Default: '${currency_address}'`,
-      "",
-      "  credentials options:",
-      "",
-      "     -w --wallet-path                Wallet file path.",
-      `       <wallet-path>                 Default: '${wallet_path}'`,
-      "",
-      "     -p --wallet-password            Wallet password file.",
-      `       <wallet-password>             Default: '${wallet_password}'`,
-      "",
-      "     -s --wallet-seed                Wallet seed file.",
-      `       <wallet-seed>                 Default: '${wallet_seed}'`,
-      "",
-      "     -k --api-key                    Etherscan-like service key.",
-      `       <wallet-seed>                 Default: '${api_key}'`,
-      "",
-      "  libEVM options:",
-      "",
-      "     -n --network                    EVM network name. Accepted",
-      "       <network>                     are all those supported by",
-      "                                     'evm-chains-info' and RPC addresses.",
-      "",
-      "  application options:",
-      "",
-      "     -K --config-dir                 Configuration directory.",
-      `       <config-dir>                  Default: '${config_dir}'`,
-      "",
-      "     -W --cache-dir                  Cache directory.",
-      `       <cache-dir>                   Default: '${cache_dir}'`,
-      "",
-      "     -h --help                       This message.",
-      "     -v --verbose                    Enable verbose output.",
-      "",
+      "     -f <y/n>               If 'y', skip rebuilding the contracts",
+      "                            if artifacts are found already in the",
+      "                            directory.",
+      ""
     ];
   for ( _line of _text ) {
-    console.log(
+    _echo(
       _line);
   }
-  _process_exit(
+  _exit(
     _exit_code);
 }
 
@@ -737,6 +681,20 @@ async function
       _argv[
         "_"][
           3];
+  }
+  if ( "B" in _argv ) {
+    _set(
+      "install",
+      "backend",
+      _argv[
+        "B"]);
+  }
+  if ( "install-backend" in _argv ) {
+    _set(
+      "install",
+      "backend",
+      _argv[
+        "install-backend"]);
   }
   if ( "R" in _argv ) {
     rpc_selection =
@@ -978,16 +936,16 @@ async function
       typeof(
         _results);
   if ( _results_type == "bigint" ) {
-    console.log(
+    _echo(
       _results.toString());
   }
   else if ( _results_type == "string" ) {
-    console.log(
+    _echo(
       _results);
   }
   else if ( _results_type == "object" ) {
     for ( _result of _results ) {
-      console.log(
+      _echo(
         _result);
     }
   }
@@ -1010,10 +968,10 @@ async function
 
 _global_variables();
 _libevm_global_variables();
-if ( _cmdline_check(
-       "solidity-compiler.js") == true ||
-     _cmdline_check(
-       "solidity-compiler") == true ) {
+if ( await _cmdline_check(
+       "evm-make.js") ||
+     await _cmdline_check(
+       "evm-make") ) {
   _cmdline_parse();
 }
 else {
