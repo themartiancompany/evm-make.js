@@ -408,28 +408,6 @@ async function
     explorer_selection =
       "kirsh";
   }
-  // TODO:
-  //   explorers api keys, optional frankly
-  //   since theres the evm-contracts-source-index
-  const
-    _wallet_set_up =
-      await _wallet_overrides_set(
-        "evm-wallet",
-        wallet_name,
-        "y",
-        "n");
-  if ( target_networks.length < 1 &&
-       networks_all == "n" ) {
-    target_networks.push(
-      100);
-  }
-  _key_fingerprint_auto_detect();
-  _output_type_check();
-  // See https://github.com/openpgpjs/openpgpjs/issues/2004
-  if ( qr_support == "" ) {
-    qr_support =
-      "n";
-  }
   return true;
 }
 
