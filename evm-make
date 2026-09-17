@@ -39,18 +39,18 @@
 
 const
   _libcrash =
-  require(
-    'crash-js');
+    await import(
+      'libcrash-js');
 /* global
      _argv_get */
 const
-_argv_get =
-  _libcrash._argv_get;
+  _argv_get =
+    _libcrash._argv_get;
 /* global
      _argv_url_get */
 const
-_argv_url_get =
-  _libcrash._argv_url_get;
+  _argv_url_get =
+    _libcrash._argv_url_get;
 /* global
      _cmdline_check */
 const
@@ -59,14 +59,13 @@ const
 /* global
      _echo */
 const
-_echo =
-  _libcrash._echo;
+  _echo =
+    _libcrash._echo;
 /* global
      _exit */
 const
-_exit =
-  _libcrash._exit;
-
+  _exit =
+    _libcrash._exit;
 /* global
      _homedir_get */
 const
@@ -88,10 +87,24 @@ const
   _msg_error =
     _libcrash._msg_error;
 /* global
+     _override_set */
+const
+  _override_set =
+    _libcrash._override_set;
+/* global
      _set */
 const
   _set =
     _libcrash._set;
+const
+  _libevm_make =
+    await import(
+      './libevm-make');
+/* global
+     _evm_make */
+const
+  _evm_make =
+    _libevm_make._evm_make;
 
 function
   _global_variables() {
@@ -580,7 +593,7 @@ async function
     };
   const
     _argv =
-      _argv_get(
+      await _argv_get(
         _argv_args);
   const
     _options =
@@ -879,7 +892,6 @@ function
     _argv_url_get(
       "cache_dir")[
         0];
-  _libevm_url_parse();
   quiet =
     _argv_url_get(
       "quiet");
@@ -907,10 +919,10 @@ async function
       wallet_seed,
       key_fingerprint,
       config_dir,
-      cache_dir,
-      networks_all,
-      rpc_selection,
-      api_key,
+      compiler_backend,
+      contracts_dir,
+      lib_dir,
+      project_dir,
       retries_max,
       tasks_parallel,
       call_timeout,
