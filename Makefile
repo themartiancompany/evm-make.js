@@ -76,27 +76,16 @@ NPM_FILES=\
   "package.json" \
   "webpack.config.cjs"
 
-all: build-man build-npm
+all: build-man build-scripts build-npm
 
-check: eslint
+build-scripts:
 
-eslint:
-
-	npm \
-	  install \
-	  --save-dev \
-	  "."; \
-	npx \
-	  eslint \
-	    "."
-
-clean:
-
-	cd \
-	  "build"; \
-	rm \
-	  -rf \
-	  "node_modules"
+	git \
+	  submodule \
+	    update \
+	    --init \
+	      "bash" || \
+	true; \
 
 build-man:
 
@@ -144,6 +133,8 @@ build-man:
 
 build-npm:
 
+	make \
+	  build-scripts
 	mkdir \
 	  -p \
 	  "build"
@@ -196,6 +187,25 @@ build-npm:
 	  "$(_PROJECT_NPM)-$${_version}.tgz" \
 	  ".."
 
+check: eslint
+
+eslint:
+
+	npm \
+	  install \
+	  --save-dev \
+	  "."; \
+	npx \
+	  eslint \
+	    "."
+
+clean:
+
+	cd \
+	  "build"; \
+	rm \
+	  -rf \
+	  "node_modules"
 
 install: install-npm install-scripts install-doc install-examples install-man
 
@@ -220,6 +230,7 @@ install-scripts:
 	  "$(PREFIX)/lib/$(_PROJECT_NPM)/nodejs/lib$(_PROJECT_NPM)" \
 	  "$(LIB_DIR)/$(_PROJECT_NPM)-js" || \
 	true
+
 
 install-npm:
 
