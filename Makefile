@@ -26,6 +26,7 @@
 #    along with this program.
 #    If not, see <https://www.gnu.org/licenses/>.
 
+_NPM ?= true
 SHELL=bash
 PREFIX ?= /usr/local
 _PROJECT=evm-make
@@ -48,6 +49,12 @@ _INSTALL_EXE=\
 _INSTALL_DIR=\
   install \
     -vdm755
+_MAKE_LINK=\
+  ln \
+    -sv
+_MAKE_EXE=\
+  chmod \
+    755
 
 DOC_FILES=\
   $(wildcard \

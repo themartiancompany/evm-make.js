@@ -91,6 +91,8 @@
     "libevm-make",
   "bin":
     { 
+      "evm-make-bash":
+        "./bash/evm-make/bash/evm-make",
       "evm-make":
         "./bash/evm-make/bash/evm-make",
       "evm-make.js":
