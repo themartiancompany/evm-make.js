@@ -131,6 +131,13 @@ function
     "dir",
     "");
   /* global
+       cache_clean:
+         writable */
+  _set(
+    "cache_clean",
+    "cache_clean",
+    "");
+  /* global
        cache_dir:
          writable */
   _set(
@@ -790,8 +797,6 @@ async function
       _argv[
         "currency"];
   }
-  _libevm_cmdline_parse(
-    _argv);
   if ( _argv[
          "v"] ||
        _argv[
