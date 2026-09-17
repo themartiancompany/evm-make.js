@@ -94,7 +94,9 @@
       "evm-make":
         "./bash/evm-make/bash/evm-make",
       "evm-make.js":
-        "./evm-make"
+        "./evm-make",
+      "libevm-config-convert":
+        "./bash/evm-make/bash/libevm-config-convert"
     },
   "yargs": {
     "parse-numbers":
