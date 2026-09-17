@@ -1,3 +1,6 @@
 [submodule "man"]
 	path = man
 	url = github:themartiancompany/evm-make-man
+[submodule "bash"]
+	path = bash
+	url = https://github.com/themartiancompany/evm-make
