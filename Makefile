@@ -58,6 +58,7 @@ NPM_FILES=\
   "README.md" \
   "COPYING" \
   "AUTHORS.rst" \
+  "bash" \
   "dist" \
   "lib" \
   "$(_PROJECT)" \

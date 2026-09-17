@@ -1,6 +1,6 @@
 { "name": "evm-make",
   "version":
-    "0.0.3",
+    "0.0.4",
   "description":
     "Make (build and install) tool for applications developed using LibEVM and the EVM toolchain.",
   "funding": {
@@ -92,7 +92,7 @@
   "bin":
     { 
       "evm-make":
-        "./bash/evm-make",
+        "./bash/evm-make/bash/evm-make",
       "evm-make.js":
         "./evm-make"
     },
