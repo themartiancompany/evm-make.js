@@ -87,77 +87,63 @@ const
 const
   _msg_error =
     _libcrash._msg_error;
-const
-  _evm_wallet_module =
-    require(
-      "evm-wallet.js");
 /* global
-     _evm_wallet:
-       writable */
-_evm_wallet =
-  _evm_wallet_module._evm_wallet;
+     _set */
 const
-  _libevm_module =
-    require(
-      "libevm");
-/* global
-     _libevm_cmdline_parse */
-const
-  _libevm_cmdline_parse =
-    _libevm_module._libevm_cmdline_parse;
-/* global
-     _libevm_global_variables */
-const
-  _libevm_global_variables =
-    _libevm_module._libevm_global_variables;
-/* global
-     _libevm_url_parse */
-const
-  _libevm_url_parse =
-    _libevm_module._libevm_url_parse;
-/* global
-     _wallet_overrides_set */
-const
-  _wallet_overrides_set =
-    _libevm_module._wallet_overrides_set;
+  _set =
+    _libcrash._set;
 
 function
   _global_variables() {
   /* global
        app_name:
          writable */
-  app_name =
-    "evm-wallet.js";
-  /* global
-       runtime_environment:
-         writable */
-  runtime_environment =
-    "";
+  _set(
+    "app",
+    "name",
+    "evm-make.js");
   /* global
        app_opts:
          writable */
-  app_opts =
-    [];
+  _set(
+    "app",
+    "opts",
+    []);
+  /* global
+       runtime_environment:
+         writable */
+  _set(
+    "runtime",
+    "environment",
+    "");
   /* global
        call_date:
          writable */
-  call_date =
-    "";
+  _set(
+    "call",
+    "date",
+    "");
   /* global
        config_dir:
          writable */
-  config_dir =
-    "";
+  _set(
+    "config",
+    "dir",
+    "");
   /* global
        cache_dir:
          writable */
-  cache_dir =
-    "";
+  _set(
+    "cache",
+    "dir",
+    "");
   /* global
        tasks_parallel:
          writable */
-  tasks_parallel =
-    "";
+  _set(
+    "tasks",
+    "parallel",
+    "");
   /* global
        target_networks:
          writable */
